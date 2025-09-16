@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EECS 348 Lab Three Practice Three</title>
+</head>
+<body>
+  <h1>EECS 348 Lab Three Practice Three</h1>
+
+  First Password: <input type="text" id="pass1" value=""> <br>
+  Second Password: <input type="text" id="pass2" value=""> <br>
+
+  <button onclick="validate()">Validate Your Passwords</button> <br>
+
+  <script>
+    function validate() {
+      let pass1 = document.getElementById("pass1").value;
+      let pass2 = document.getElementById("pass2").value;
+
+      if (pass1.length < 8) {
+        alert("The length of the first password is less than 8 letters!");
+      } 
+      else if (pass2.length < 8) {
+        alert("The length of the second password is less than 8 letters!");
+      } 
+      else if (pass1 !== pass2) {
+        alert("Two passwords don't match!");
+      } 
+      else {
+        alert("Everything is OK!");
+      }
+    }
+  </script>
+</body>
+</html>

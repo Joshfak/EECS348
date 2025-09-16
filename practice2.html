@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EECS 348 Lab Three Practice Two</title>
+  <style>
+    #paragraph {
+      border-style: solid;
+      border-width: 5px;
+      padding: -1%;
+      width: 1500px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>EECS 348 Lab Three Practice Two</h1>
+
+  <div id="paragraph">
+    Paragraph to be altered.
+  </div>
+
+
+
+  <!-- Border controls -->
+  Border R(0-255): <input type="text" id="border_R"> <br>
+  Border G(0-255): <input type="text" id="border_G"> <br>
+  Border B(0-255): <input type="text" id="border_B"> <br>
+  Border Width: <input type="text" id="border_width"> <br>
+  Background R(0-255): <input type="text" id="bg_R"> <br>
+  Background G(0-255): <input type="text" id="bg_G"> <br>
+  Background B(0-255): <input type="text" id="bg_B"> <br>
+
+  <button onclick="alert_paragraph_color()">Change the color!</button> <br>
+
+  <script>
+    function alert_paragraph_color() {
+
+      let br = document.getElementById("border_R").value;
+      let bg = document.getElementById("border_G").value;
+      let bb = document.getElementById("border_B").value;
+      let bw = document.getElementById("border_width").value;
+    
+      let r = document.getElementById("bg_R").value;
+      let g = document.getElementById("bg_G").value;
+      let b = document.getElementById("bg_B").value;
+      
+      let para = document.getElementById("paragraph");
+
+
+      para.style.borderColor = `rgb(${br}, ${bg}, ${bb})`;
+      para.style.borderWidth = bw + "px";
+
+      // apply background color
+      para.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <h1>EECS 348 Lab Three Practice Four</h1>
+</head>
+
+<body>
+    <form action="practice4.php" method="post">
+        Size of the multiplication table: <input type="text" name="size"><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Multiplication Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multiplication Table</h1>
+
+  <?php
+    if (isset($_POST["size"])) {
+      $size = intval($_POST["size"]);
+
+      if ($size < 1) {
+        echo "<p>Please enter a valid positive number!</p>";
+      } else {
+        echo "<table>";
+        
+        // Top header row
+        echo "<tr><th>*</th>";
+        for ($i = 1; $i <= $size; $i++) {
+          echo "<th>$i</th>";
+        }
+        echo "</tr>";
+
+        // Table rows
+        for ($row = 1; $row <= $size; $row++) {
+          echo "<tr>";
+          echo "<th>$row</th>"; // Row header
+          for ($col = 1; $col <= $size; $col++) {
+            echo "<td>" . ($row * $col) . "</td>";
+          }
+          echo "</tr>";
+        }
+
+        echo "</table>";
+      }
+    } else {
+      echo "<p>No size entered!</p>";
+    }
+  ?>
+</body>
+</html>
